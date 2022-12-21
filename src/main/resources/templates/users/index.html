@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title> Список пользователей </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1> Список пользователей </h1>
+<br/><br/>
+
+<div>
+    <table border="1">
+        <tr>
+            <th> ID </th>
+            <th> Имя </th>
+            <th> Фамилия </th>
+            <th> Е-мейл </th>
+        </tr>
+        <tr th:each ="user : ${users}">
+            <td><a th:href="@{/users/user (id = ${user.userId})}" th:utext="${user.userId}">UserId</a></td>
+            <td th:utext="${user.firstName}"> Имя </td>
+            <td th:utext="${user.lastName}"> Фамилия </td>
+            <td th:utext="${user.email}"> Е-мейл </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
